@@ -1,4 +1,5 @@
 import {query as q } from 'faunadb';
+
 import { fauna } from './../../../services/fauna';
 import { stripe } from '../../../services/stripe';
 
@@ -30,12 +31,12 @@ export async function saveSubscription(
 
   if (createAction){
     await fauna.query(
-    q.Create(
-      q.Collection('subscriptions'),
-      {data: subscriptionData}
+      q.Create(
+        q.Collection('subscriptions'),
+        {data: subscriptionData}
+      )
     )
-  )
-  }else{
+  } else{
     await fauna.query(
       q.Replace(
         q.Select(
@@ -51,6 +52,4 @@ export async function saveSubscription(
       )
     )
   }
-  
-
 } 
