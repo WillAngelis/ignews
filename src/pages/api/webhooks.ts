@@ -75,7 +75,7 @@ export default async (req:NextApiRequest,res:NextApiResponse) => {
         
       }
 
-      console.log('evento recebido', event)
+     
     }
 
     res.json({received: true})
